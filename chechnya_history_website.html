@@ -1,0 +1,1904 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ملحمة الشيشان | قصة الصمود، حروب روسيا، وجذور صراع الكرامة</title>
+    <style>
+        :root {
+            --bg-primary: #050E0A;
+            --bg-secondary: #0A1C14;
+            --bg-card: #10271D;
+            --bg-card-hover: #163628;
+            --accent-gold: #D4AF37;
+            --accent-gold-light: #F3E5AB;
+            --accent-gold-dark: #997B20;
+            --accent-green: #1F8A58;
+            --accent-green-bright: #2ECC71;
+            --accent-red: #A93226;
+            --accent-red-bright: #E74C3C;
+            --text-primary: #F4F7F5;
+            --text-secondary: #B2C7BC;
+            --text-muted: #728C80;
+            --border-color: rgba(212, 175, 55, 0.22);
+            --border-color-strong: rgba(212, 175, 55, 0.5);
+            --font-family: 'Tajawal', 'Cairo', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            --shadow-sm: 0 4px 14px rgba(0,0,0,0.35);
+            --shadow-lg: 0 14px 35px rgba(0,0,0,0.65);
+            --transition-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: var(--font-family);
+            line-height: 1.85;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Reading Progress Bar */
+        #progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-green-bright), var(--accent-gold), var(--accent-green-bright));
+            width: 0%;
+            z-index: 9999;
+            transition: width 0.1s ease;
+        }
+
+        /* Header & Nav */
+        header {
+            position: sticky;
+            top: 0;
+            background: rgba(5, 14, 10, 0.95);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.85rem 1.5rem;
+            position: relative;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+
+        .brand-logo svg {
+            width: 40px;
+            height: 40px;
+            fill: var(--accent-gold);
+            filter: drop-shadow(0 0 10px rgba(212,175,55,0.4));
+        }
+
+        .brand-text h1 {
+            font-size: 1.3rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: var(--accent-gold);
+            line-height: 1.1;
+        }
+
+        .brand-text span {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            display: block;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.1rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.92rem;
+            font-weight: 600;
+            padding: 0.4rem 0.65rem;
+            border-radius: 6px;
+            transition: var(--transition-smooth);
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--accent-gold);
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .search-btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--accent-gold);
+            padding: 0.45rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: inherit;
+            font-size: 0.88rem;
+            font-weight: 700;
+            transition: var(--transition-smooth);
+        }
+
+        .search-btn:hover {
+            border-color: var(--accent-gold);
+            background: var(--bg-card-hover);
+            transform: translateY(-1px);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--accent-gold);
+            font-size: 1.7rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 950px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                right: 0;
+                left: 0;
+                background: var(--bg-secondary);
+                flex-direction: column;
+                padding: 1.5rem;
+                border-bottom: 1px solid var(--border-color);
+                box-shadow: var(--shadow-lg);
+            }
+            .nav-links.show {
+                display: flex;
+            }
+            .menu-toggle {
+                display: block;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 5rem 1.5rem 4rem;
+            background: radial-gradient(circle at 50% 25%, rgba(31, 138, 88, 0.28) 0%, rgba(5, 14, 10, 0.98) 75%);
+            border-bottom: 1px solid var(--border-color);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: 
+                radial-gradient(rgba(212, 175, 55, 0.08) 1.5px, transparent 1.5px);
+            background-size: 36px 36px;
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            max-width: 980px;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: rgba(212, 175, 55, 0.12);
+            border: 1px solid var(--border-color-strong);
+            padding: 0.45rem 1.35rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            margin-bottom: 1.75rem;
+            box-shadow: 0 0 25px rgba(212,175,55,0.18);
+        }
+
+        .hero h2 {
+            font-size: clamp(2.2rem, 5.2vw, 3.8rem);
+            font-weight: 900;
+            line-height: 1.25;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h2 span {
+            color: var(--accent-gold);
+            text-shadow: 0 0 30px rgba(212,175,55,0.35);
+        }
+
+        .hero p {
+            font-size: clamp(1.05rem, 2vw, 1.35rem);
+            color: var(--text-secondary);
+            max-width: 820px;
+            margin: 0 auto 2.5rem;
+            font-weight: 400;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1.2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
+            color: #050E0A;
+            padding: 0.85rem 2.2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.05rem;
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.35);
+            transition: var(--transition-smooth);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.55);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-primary);
+            padding: 0.85rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.05rem;
+            border: 1px solid var(--border-color);
+            transition: var(--transition-smooth);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(212, 175, 55, 0.12);
+            border-color: var(--accent-gold);
+            transform: translateY(-3px);
+        }
+
+        /* Key Metrics Banner */
+        .metrics-banner {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            max-width: 1250px;
+            margin: -3.5rem auto 3.5rem;
+            padding: 0 1.5rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .metric-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 1.6rem 1.2rem;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition-smooth);
+        }
+
+        .metric-card:hover {
+            border-color: var(--accent-gold);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .metric-number {
+            font-size: 2.3rem;
+            font-weight: 900;
+            color: var(--accent-gold);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-label {
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1250px;
+            margin: 0 auto;
+            padding: 3.5rem 1.5rem;
+        }
+
+        /* Section Headers */
+        .section-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+            position: relative;
+        }
+
+        .section-tag {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            color: var(--accent-green-bright);
+            font-weight: 800;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        .section-title {
+            font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+
+        .section-desc {
+            color: var(--text-secondary);
+            max-width: 780px;
+            margin: 0 auto;
+            font-size: 1.05rem;
+        }
+
+        .section-header::after {
+            content: '';
+            display: block;
+            width: 75px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+            margin: 1.5rem auto 0;
+        }
+
+        /* Content Cards & Grids */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2rem;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .content-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 2.2rem;
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .content-card:hover {
+            border-color: var(--border-color-strong);
+            background: var(--bg-card-hover);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            background: rgba(212, 175, 55, 0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.25rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .card-icon svg {
+            width: 28px;
+            height: 28px;
+            fill: var(--accent-gold);
+        }
+
+        .card-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            margin-bottom: 0.85rem;
+        }
+
+        .card-body {
+            color: var(--text-secondary);
+            font-size: 0.98rem;
+            line-height: 1.75;
+        }
+
+        /* Detailed Cause/Comparison Block */
+        .comparison-table-wrapper {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            overflow: hidden;
+            margin-top: 2.5rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: right;
+        }
+
+        .comparison-table th {
+            background: var(--bg-secondary);
+            padding: 1.25rem 1.5rem;
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--accent-gold);
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .comparison-table td {
+            padding: 1.25rem 1.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            vertical-align: top;
+        }
+
+        .comparison-table tr:hover td {
+            background: rgba(212, 175, 55, 0.04);
+        }
+
+        .comparison-table strong {
+            color: #ffffff;
+            display: block;
+            margin-bottom: 0.35rem;
+        }
+
+        /* Strategic Map / Infographic Box */
+        .map-infographic-box {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 3rem 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        @media (max-width: 850px) {
+            .map-infographic-box {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .map-info-text h4 {
+            color: var(--accent-gold);
+            font-size: 1.45rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .map-info-text p {
+            color: var(--text-secondary);
+            font-size: 0.98rem;
+            margin-bottom: 1.2rem;
+            line-height: 1.75;
+        }
+
+        .map-svg-container {
+            background: #040906;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .map-svg-container svg {
+            width: 100%;
+            height: auto;
+            max-height: 280px;
+        }
+
+        /* War Section (Split view / Deep Dive) */
+        .war-box {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 3.5rem;
+            position: relative;
+        }
+
+        .war-box.war-one {
+            border-right: 6px solid var(--accent-green-bright);
+        }
+
+        .war-box.war-two {
+            border-right: 6px solid var(--accent-red);
+        }
+
+        .war-meta {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+            font-size: 0.92rem;
+            font-weight: 700;
+        }
+
+        .meta-pill {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--border-color);
+            padding: 0.35rem 0.95rem;
+            border-radius: 20px;
+            color: var(--accent-gold);
+        }
+
+        .war-title {
+            font-size: 1.85rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+
+        .war-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2.5rem;
+            margin-top: 1.5rem;
+        }
+
+        @media (max-width: 850px) {
+            .war-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .war-highlights {
+            background: rgba(5, 14, 10, 0.75);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.75rem;
+        }
+
+        .war-highlights h4 {
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+            font-size: 1.15rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .war-highlights ul {
+            list-style: none;
+        }
+
+        .war-highlights li {
+            position: relative;
+            padding-right: 1.4rem;
+            margin-bottom: 0.9rem;
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+        }
+
+        .war-highlights li::before {
+            content: '◆';
+            position: absolute;
+            right: 0;
+            top: 2px;
+            color: var(--accent-gold);
+            font-size: 0.75rem;
+        }
+
+        /* Timeline Interactive with Filters */
+        .timeline-filter {
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            padding: 0.45rem 1.2rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 0.9rem;
+            font-weight: 700;
+            transition: var(--transition-smooth);
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--accent-gold);
+            color: #050E0A;
+            border-color: var(--accent-gold);
+            box-shadow: 0 4px 12px rgba(212,175,55,0.3);
+        }
+
+        .timeline-container {
+            position: relative;
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 1rem 0 2rem;
+        }
+
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 3px;
+            background: linear-gradient(180deg, var(--accent-gold), var(--accent-green-bright), var(--accent-red));
+            top: 0;
+            bottom: 0;
+            right: 50%;
+            margin-right: -1.5px;
+        }
+
+        @media (max-width: 768px) {
+            .timeline-container::after {
+                right: 25px;
+            }
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            margin-bottom: 2rem;
+            transition: var(--transition-smooth);
+        }
+
+        .timeline-item.right {
+            right: 0;
+        }
+
+        .timeline-item.left {
+            right: 50%;
+        }
+
+        @media (max-width: 768px) {
+            .timeline-item {
+                width: 100%;
+                padding-right: 65px;
+                padding-left: 15px;
+            }
+            .timeline-item.left {
+                right: 0;
+            }
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            right: -9px;
+            background-color: var(--bg-primary);
+            border: 4px solid var(--accent-gold);
+            top: 20px;
+            border-radius: 50%;
+            z-index: 2;
+            transition: var(--transition-smooth);
+        }
+
+        .timeline-item.left::after {
+            right: auto;
+            left: -9px;
+        }
+
+        @media (max-width: 768px) {
+            .timeline-item::after, .timeline-item.left::after {
+                right: 16px;
+                left: auto;
+            }
+        }
+
+        .timeline-item:hover::after {
+            background-color: var(--accent-gold);
+            box-shadow: 0 0 12px var(--accent-gold);
+        }
+
+        .timeline-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 1.6rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition-smooth);
+        }
+
+        .timeline-card:hover {
+            border-color: var(--accent-gold);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .timeline-year {
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--accent-gold);
+            font-weight: 800;
+            padding: 0.25rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-title {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-desc {
+            font-size: 0.94rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Leaders & Figures */
+        .figures-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .figure-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            overflow: hidden;
+            transition: var(--transition-smooth);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .figure-card:hover {
+            border-color: var(--accent-gold);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .figure-header {
+            padding: 1.75rem 1.5rem;
+            background: linear-gradient(135deg, var(--bg-secondary), var(--bg-card));
+            border-bottom: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .figure-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: rgba(212, 175, 55, 0.12);
+            border: 2px solid var(--accent-gold);
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .figure-avatar svg {
+            width: 44px;
+            height: 44px;
+            fill: var(--accent-gold);
+        }
+
+        .figure-name {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 0.35rem;
+        }
+
+        .figure-role {
+            font-size: 0.85rem;
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+
+        .figure-body {
+            padding: 1.5rem;
+            flex-grow: 1;
+            font-size: 0.94rem;
+            color: var(--text-secondary);
+            line-height: 1.75;
+        }
+
+        .figure-quote {
+            margin-top: 1.2rem;
+            padding: 0.85rem 1rem;
+            background: rgba(5, 14, 10, 0.7);
+            border-right: 3px solid var(--accent-gold);
+            font-style: italic;
+            font-size: 0.88rem;
+            color: var(--accent-gold-light);
+            border-radius: 0 6px 6px 0;
+        }
+
+        /* Nokhchalla / Moral Code */
+        .nokhchalla-box {
+            background: radial-gradient(circle at 50% 40%, #153828 0%, #071710 100%);
+            border: 1px solid var(--border-color-strong);
+            border-radius: 18px;
+            padding: 3.5rem 2.5rem;
+            margin: 3.5rem 0;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .nokhchalla-title {
+            text-align: center;
+            color: var(--accent-gold);
+            font-size: 2.2rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+
+        .nokhchalla-desc {
+            text-align: center;
+            max-width: 820px;
+            margin: 0 auto 2.75rem;
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+        }
+
+        .nokhchalla-pillars {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .pillar-item {
+            background: rgba(5, 14, 10, 0.7);
+            border: 1px solid var(--border-color);
+            padding: 1.6rem;
+            border-radius: 12px;
+            transition: var(--transition-smooth);
+        }
+
+        .pillar-item:hover {
+            border-color: var(--accent-gold);
+            transform: translateY(-3px);
+            background: rgba(16, 39, 29, 0.8);
+        }
+
+        .pillar-item h5 {
+            color: var(--accent-gold);
+            font-size: 1.15rem;
+            margin-bottom: 0.6rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .pillar-item p {
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* FAQ Accordion */
+        .faq-accordion {
+            max-width: 950px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            margin-bottom: 1.25rem;
+            overflow: hidden;
+            transition: var(--transition-smooth);
+        }
+
+        .faq-item.active {
+            border-color: var(--accent-gold);
+        }
+
+        .faq-question {
+            padding: 1.35rem 1.75rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 1.12rem;
+            color: #ffffff;
+            user-select: none;
+        }
+
+        .faq-question:hover {
+            color: var(--accent-gold);
+        }
+
+        .faq-icon {
+            font-size: 1.3rem;
+            color: var(--accent-gold);
+            transition: transform 0.3s ease;
+            line-height: 1;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease-out;
+            padding: 0 1.75rem;
+            color: var(--text-secondary);
+            font-size: 0.98rem;
+            line-height: 1.85;
+            background: rgba(5, 14, 10, 0.45);
+        }
+
+        .faq-answer-inner {
+            padding: 1.25rem 0 1.6rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        /* Search Modal */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.85);
+            backdrop-filter: blur(8px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            padding: 1.5rem;
+        }
+
+        .modal-overlay.open {
+            display: flex;
+        }
+
+        .search-modal {
+            background: var(--bg-secondary);
+            border: 1px solid var(--accent-gold);
+            width: 100%;
+            max-width: 650px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.85);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .search-modal-header {
+            padding: 1.25rem 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .search-modal-header input {
+            flex-grow: 1;
+            background: transparent;
+            border: none;
+            color: #fff;
+            font-family: inherit;
+            font-size: 1.15rem;
+            outline: none;
+        }
+
+        .close-modal {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1.6rem;
+            cursor: pointer;
+            transition: color 0.2s;
+            line-height: 1;
+        }
+
+        .close-modal:hover {
+            color: var(--accent-gold);
+        }
+
+        .search-results {
+            max-height: 400px;
+            overflow-y: auto;
+            padding: 1rem 1.5rem;
+        }
+
+        .search-result-item {
+            padding: 0.9rem;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+
+        .search-result-item:hover {
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        .search-result-item h6 {
+            color: var(--accent-gold);
+            font-size: 1.05rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .search-result-item p {
+            color: var(--text-secondary);
+            font-size: 0.88rem;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* Footer */
+        footer {
+            background: #030806;
+            border-top: 1px solid var(--border-color);
+            padding: 4rem 1.5rem 2rem;
+            text-align: center;
+        }
+
+        .footer-logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.85rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-logo svg {
+            width: 36px;
+            height: 36px;
+            fill: var(--accent-gold);
+        }
+
+        .footer-text {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            max-width: 650px;
+            margin: 0 auto 2rem;
+            line-height: 1.8;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.06);
+            padding-top: 1.5rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Reading Progress Bar -->
+    <div id="progress-bar"></div>
+
+    <!-- Header & Navigation -->
+    <header>
+        <div class="nav-container">
+            <a href="#hero" class="brand-logo">
+                <svg viewBox="0 0 100 100">
+                    <!-- Stylized Chechen Vaynakh Tower & Mountain Motif -->
+                    <polygon points="50,8 18,88 82,88" stroke="var(--accent-gold)" stroke-width="4" fill="none"/>
+                    <rect x="42" y="38" width="16" height="34" fill="var(--accent-gold)" opacity="0.8"/>
+                    <circle cx="50" cy="26" r="4.5" fill="var(--accent-gold)"/>
+                    <line x1="28" y1="88" x2="72" y2="88" stroke="var(--accent-gold)" stroke-width="6"/>
+                </svg>
+                <div class="brand-text">
+                    <h1>ملحمة الشيشان</h1>
+                    <span>قضية الحرية، التاريخ، وصراع البقاء</span>
+                </div>
+            </a>
+
+            <ul class="nav-links" id="nav-menu">
+                <li><a href="#origins">الهوية والشعب</a></li>
+                <li><a href="#causes">أسباب الصراع</a></li>
+                <li><a href="#wars">الحروب الروسية</a></li>
+                <li><a href="#timeline">الخط الزمني</a></li>
+                <li><a href="#figures">شخصيات خالدة</a></li>
+                <li><a href="#nokhchalla">قيم نوختشاللا</a></li>
+                <li><a href="#faq">حقائق وتساؤلات</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button class="search-btn" id="open-search-btn">
+                    <span>🔍</span> بحث
+                </button>
+                <button class="menu-toggle" id="menu-toggle" aria-label="القائمة">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span>🐺</span> أرض الصقور والذئاب الحرة • جبال شمال القوقاز
+            </div>
+            <h2>الشيشان وروسيا:<br><span>قصة صراع لم ينطفئ على مر القرون</span></h2>
+            <p>
+                موسوعة رقمية توثيقية تستعرض قصة الشعب الشيشاني المسلم، كيف واجه أعتى الإمبراطوريات، لماذا أعلن الاستقلال عام 1991، ولماذا خاضت موسكو أشرس حروب التسعينيات لمنع قيام جمهورية إشكيريا.
+            </p>
+            <div class="hero-cta">
+                <a href="#causes" class="btn-primary">لماذا قامت الحرب ومطالبهم؟</a>
+                <a href="#wars" class="btn-secondary">ملحمة الحربين (1994 - 2009)</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Metrics Banner -->
+    <div class="metrics-banner">
+        <div class="metric-card">
+            <div class="metric-number">400+</div>
+            <div class="metric-label">عام من مقاومة التمدد الروسي في القوقاز</div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-number">1944</div>
+            <div class="metric-label">مأساة التهجير السوفيتي الشامل (عملية العدس)</div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-number">1991</div>
+            <div class="metric-label">إعلان جمهورية إشكيريا الشيشانية المستقلة</div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-number">200,000+</div>
+            <div class="metric-label">شهيد وضحية في حربي الدفاع عن الاستقلال</div>
+        </div>
+    </div>
+
+    <!-- Section 1: Origins & Chechen Identity -->
+    <section class="container" id="origins">
+        <div class="section-header">
+            <span class="section-tag">الفصل الأول</span>
+            <h3 class="section-title">الهوية، الأرض، والشعب: من هم الشيشان؟</h3>
+            <p class="section-desc">شعب قوقازي أصيل لم يعرف العبودية ولم يركع للتيجان، ارتبطت هويته الإسلامية بالصوفية المقاومة وعزة النفس الجبلية.</p>
+        </div>
+
+        <div class="grid-3">
+            <div class="content-card">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                </div>
+                <h4 class="card-title">أصل شعب "النخ" (Nakh)</h4>
+                <div class="card-body">
+                    الشيشان يسمون أنفسهم بلغتهم الأصلية <strong>"نوختشي" (Nokhchiy)</strong>، وهم ينحدرون من شعوب "الفايناتش" العريقة التي استوطنت منحدرات جبال القوقاز الوعرة منذ آلاف السنين. تميز مجتمعهم بالبناء العشائري الديمقراطي الخالي من طبقات النبلاء أو الإقطاعيين، حيث كان كل رجل شيشاني حراً متساوياً مع أقرانه.
+                </div>
+            </div>
+
+            <div class="content-card">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2L1 21h22L12 2zm0 3.99L19.53 19H4.47L12 5.99zM11 16h2v2h-2zm0-6h2v4h-2z"/></svg>
+                </div>
+                <h4 class="card-title">الإسلام والتصوف المقاوم</h4>
+                <div class="card-body">
+                    دخل الإسلام الشيشان تدريجياً واكتمل ترسيخه في القرنين السابع عشر والثامن عشر. تميز بطابعه السني الشافعي الممتزج بالطرق الصوفية (خاصة <strong>القادرية</strong> بزعامة كونتا حاجي، و<strong>النقشبندية</strong> بزعامة الإمام شامل). شكلت حلقات "الذكر" والروابط الصوفية شبكة تنظيمية متماسكة قاومت الغزو القيصري لعقود.
+                </div>
+            </div>
+
+            <div class="content-card">
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+                </div>
+                <h4 class="card-title">رمز الذئب (Borz)</h4>
+                <div class="card-body">
+                    الذئب الشيشاني هو رمز الصمود القومي. في الثقافة الشيشانية، الذئب هو الحيوان الوحيد الذي يواجه العاصفة وجهاً لوجه ولا ينحني، ولا يمكن ترويضه في السيرك. يقول المثل الشيشاني: <em>"ولدنا في ليلة عواء الذئاب"</em>، وهو ما اتخذه جوهر دوداييف شعاراً لعلم إشكيريا المستقلة.
+                </div>
+            </div>
+        </div>
+
+        <!-- 1944 Soviet Deportation Box -->
+        <div style="margin-top: 3.5rem; background: linear-gradient(135deg, rgba(169, 50, 38, 0.18), var(--bg-card)); border: 1px solid var(--accent-red); border-radius: 14px; padding: 2.2rem;">
+            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                <span style="font-size: 2.2rem;">⚡</span>
+                <h4 style="color: var(--accent-red-bright); font-size: 1.45rem; font-weight: 800;">عملية العدس (أرداناخ) 1944: الجرح الذي لم يندمل</h4>
+            </div>
+            <p style="color: var(--text-secondary); line-height: 1.85;">
+                في 23 فبراير 1944، أصدر جوزيف ستالين ورئيس مخابراته لافرينتي بيريا أمراً بتهجير الشعب الشيشاني والإنجوشي بالكامل (قرابة 500 ألف إنسان) في غضون أيام معدودة. حُشر الرجال والنساء والأطفال في عربات شحن الماشية في درجات حرارة بلغت 40 تحت الصفر، ونُقلوا إلى مجاهل كازاخستان وسيبيريا بتهمة كاذبة هي "التعاون مع النازيين" (رغم أن الجيش الألماني لم يدخل الشيشان مطلقاً، وكان عشرات آلاف الشيشانيين يقاتلون في صفوف الجيش الأحمر!). 
+                <br><br>
+                قضى ما بين <strong>ثلث إلى نصف الشعب الشيشاني</strong> نحبهم جراء البرد والجوع والأمراض خلال الرحلة وسنوات المنفى. وأُلغيت جمهورية الشيشان من الخرائط حتى عام 1957 حين سمح نيكيتا خروتشوف للناجين بالعودة ليجدوا بيوتهم قد وُزعت على مستوطنين روس وداغستانيين. هذه الإبادة الجماعية شكلت في الوعي الشيشاني قناعة راسخة: <strong>"لا أمان مع موسكو إلا بالاستقلال الكامل"</strong>.
+            </p>
+        </div>
+    </section>
+
+    <!-- Strategic Geography & Energy Corridor Box -->
+    <section class="container" style="padding-top: 0;">
+        <div class="map-infographic-box">
+            <div class="map-info-text">
+                <h4>موقع الشيشان الاستراتيجي ولعنة الجغرافيا</h4>
+                <p>
+                    تقع الشيشان في قلب شمال القوقاز؛ تشكل ممراً حيوياً يربط روسيا بجورجيا وأذربيجان والشرق الأوسط. كما تقع عاصمتها غروزني على مسار خط أنابيب النفط الاستراتيجي (باكو - غروزني - نوفوروسيسك) الذي ينقل نفط بحر قزوين إلى موانئ روسيا على البحر الأسود.
+                </p>
+                <p>
+                    خسارة الشيشان بالنسبة للكرملين لم تكن مجرد خسارة مساحة جغرافية (17 ألف كم²)، بل كانت تعني انقطاع شريان الطاقة وفقدان السيطرة على سائر جمهوريات القوقاز الإسلامية.
+                </p>
+            </div>
+            <div class="map-svg-container">
+                <svg viewBox="0 0 500 300" style="background:#06130D; border-radius:8px;">
+                    <!-- Russia North -->
+                    <rect x="0" y="0" width="500" height="110" fill="#0C2418" stroke="#1F8A58" stroke-width="1"/>
+                    <text x="250" y="55" fill="#728C80" font-size="16" font-weight="bold" text-anchor="middle" font-family="sans-serif">الاتحاد الروسي (الشمال)</text>
+                    
+                    <!-- Caucasus Ridge & Chechnya -->
+                    <polygon points="120,110 380,110 420,220 80,220" fill="#143A26" stroke="#D4AF37" stroke-width="2"/>
+                    <text x="250" y="165" fill="#D4AF37" font-size="20" font-weight="bold" text-anchor="middle" font-family="sans-serif">جمهورية إشكيريا الشيشانية (غروزني)</text>
+                    <circle cx="250" cy="180" r="6" fill="#E74C3C"/>
+                    <text x="250" y="202" fill="#F4F7F5" font-size="12" text-anchor="middle" font-family="sans-serif">عقدة مصافي غروزني وخطوط الأنابيب</text>
+
+                    <!-- Caspian and Black Sea indicators -->
+                    <rect x="0" y="110" width="80" height="190" fill="#07202B"/>
+                    <text x="40" y="200" fill="#4895EF" font-size="13" text-anchor="middle" transform="rotate(-90 40 200)" font-family="sans-serif">البحر الأسود</text>
+                    
+                    <rect x="420" y="110" width="80" height="190" fill="#07202B"/>
+                    <text x="460" y="200" fill="#4895EF" font-size="13" text-anchor="middle" transform="rotate(90 460 200)" font-family="sans-serif">بحر قزوين (نفط باكو)</text>
+
+                    <!-- Pipeline line -->
+                    <path d="M 440 210 Q 250 180 60 170" fill="none" stroke="#E74C3C" stroke-width="3" stroke-dasharray="6,4"/>
+                    <text x="140" y="145" fill="#E74C3C" font-size="11" font-family="sans-serif">شريان أنابيب النفط القزويني ⟶</text>
+
+                    <!-- South: Georgia & Dagestan -->
+                    <rect x="80" y="220" width="340" height="80" fill="#0A1812"/>
+                    <text x="250" y="265" fill="#728C80" font-size="14" text-anchor="middle" font-family="sans-serif">جبال القوقاز الكبرى • جورجيا وداغستان</text>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Why War Broke Out? Demands & Russian Stance -->
+    <section class="container" id="causes">
+        <div class="section-header">
+            <span class="section-tag">الفصل الثاني</span>
+            <h3 class="section-title">لماذا قامت الحرب أصلاً؟ مطالب الشيشان وموقف روسيا</h3>
+            <p class="section-desc">في عام 1991 تداعى الاتحاد السوفيتي، وطالبت الشيشان بحق تقرير المصير، فلماذا رفضت موسكو استقلالها وسمحت للآخرين؟</p>
+        </div>
+
+        <div class="grid-2">
+            <div class="content-card" style="border-top: 4px solid var(--accent-gold);">
+                <h4 class="card-title">مطالب الشيشان (جمهورية إشكيريا 1991)</h4>
+                <div class="card-body">
+                    <ul style="list-style: none; padding-right: 0;">
+                        <li style="margin-bottom: 1rem; position: relative; padding-right: 1.5rem;">
+                            <span style="position: absolute; right: 0; color: var(--accent-gold);">✓</span>
+                            <strong>حق تقرير المصير والاستقلال التام:</strong> اعتبار انضمام الشيشان لروسيا القيصرية احتلالاً عسكرياً قسرياً وقع عام 1859 ولا يملك أي شرعية قانونية أو رغبة شعبية.
+                        </li>
+                        <li style="margin-bottom: 1rem; position: relative; padding-right: 1.5rem;">
+                            <span style="position: absolute; right: 0; color: var(--accent-gold);">✓</span>
+                            <strong>التحرر من إرث الإبادة والتهجير:</strong> إدراك القيادة الشيشانية بقيادة جوهر دوداييف أن بقاء الشيشان تحت رحمة الكرملين يعني بقاء خطر التطهير العرقي قائماً.
+                        </li>
+                        <li style="margin-bottom: 1rem; position: relative; padding-right: 1.5rem;">
+                            <span style="position: absolute; right: 0; color: var(--accent-gold);">✓</span>
+                            <strong>السيادة على الموارد الوطنية:</strong> استعادة السيطرة على حقول النفط الشيشاني عالية الجودة ومصافي غروزني العملاقة التي استنزفتها موسكو لعقود دون استفادة أهل الأرض.
+                        </li>
+                        <li style="margin-bottom: 1rem; position: relative; padding-right: 1.5rem;">
+                            <span style="position: absolute; right: 0; color: var(--accent-gold);">✓</span>
+                            <strong>إحياء الهوية الإسلامية والقومية:</strong> بناء دولة ذات سيادة تعيد تدريس لغة وثقافة النخش وتفتح المساجد التي هدمها الحكم السوفيتي الإلحادي.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="content-card" style="border-top: 4px solid var(--accent-red);">
+                <h4 class="card-title">دوافع روسيا لرفض الاستقلال وشن الحرب</h4>
+                <div class="card-body">
+                    <ul style="list-style: none; padding-right: 0;">
+                        <li style="margin-bottom: 1rem; position: relative; padding-right: 1.5rem;">
+                            <span style="position: absolute; right: 0; color: var(--accent-red);">✗</span>
+                            <strong>شريان النفط وموقع القوقاز الاستراتيجي:</strong> غروزني كانت عقدة أنابيب النفط القادمة من باكو وبحر قزوين إلى ميناء نوفوروسيسك الروسي، وخسارتها تعني فقدان الهيمنة الطاقية.
+                        </li>
+                        <li style="margin-bottom: 1rem; position: relative; padding-right: 1.5rem;">
+                            <span style="position: absolute; right: 0; color: var(--accent-red);">✗</span>
+                            <strong>الخوف من "أثر الدومينو" وتفكك الفيدرالية:</strong> خشيت حكومة بوريس يلتسين أن يؤدي نجاح الشيشان في الاستقلال إلى تمرد جمهوريات غنية داخل روسيا مثل تترستان وباشكيريا وسيبيريا.
+                        </li>
+                        <li style="margin-bottom: 1rem; position: relative; padding-right: 1.5rem;">
+                            <span style="position: absolute; right: 0; color: var(--accent-red);">✗</span>
+                            <strong>الفارق الإداري السوفيتي المضلل:</strong> الشيشان كانت مصنفة كـ "جمهورية حكم ذاتي داخل روسيا" وليست "جمهورية اتحادية كاملة" (مثل أوكرانيا وجورجيا)، فاتخذت روسيا ذلك ذريعة قانونية لرفض انفصالها.
+                        </li>
+                        <li style="margin-bottom: 1rem; position: relative; padding-right: 1.5rem;">
+                            <span style="position: absolute; right: 0; color: var(--accent-red);">✗</span>
+                            <strong>استعراض هيبة الجيش الروسي المنهارة:</strong> سعت القيادة الروسية لتعويض إحباطات هزيمة أفغانستان وتفكك الاتحاد السوفيتي بانتصار خاطف ظن وزير دفاعهم بافيل غراتشيف أنه سيتحقق "في ساعتين فقط".
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Strategic Comparison Table -->
+        <div class="comparison-table-wrapper">
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th style="width: 22%;">محور المقارنة</th>
+                        <th style="width: 39%;">الرؤية الشيشانية (إشكيريا)</th>
+                        <th style="width: 39%;">الرؤية الروسية (الكرملين)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>الشرعية السياسية</strong></td>
+                        <td>استفتاء شعبي وانتخابات ديمقراطية بإشراف دولي فاز بها جوهر دوداييف بنسبة 85% عام 1991.</td>
+                        <td>اعتبار حكومة دوداييف "تمرداً غير دستوري وعصابة مسلحة" خارجة عن القانون الفيدرالي.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>المظلمة التاريخية</strong></td>
+                        <td>قرون من الإبادة والاستعمار والتهجير القسري عام 1944 تلغي أي حق أخلاقي لموسكو في حكم الشيشان.</td>
+                        <td>الحفاظ على "سلامة أراضي الاتحاد الروسي المعترف بها دولياً" بعد نهاية الحرب الباردة.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>طبيعة المعركة</strong></td>
+                        <td>حرب تحرير وطني، دفاع عن العرض والدين والأرض والكرامة الفردية (جهاد دفع).</td>
+                        <td>"استعادة النظام الدستوري" أولاً، ثم "عملية مكافحة إرهاب دولي" في الحرب الثانية.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Section 3: The Two Wars Deep-Dive -->
+    <section class="container" id="wars">
+        <div class="section-header">
+            <span class="section-tag">الفصل الثالث</span>
+            <h3 class="section-title">الحروب الشيشانية الروسية (1994 - 2009)</h3>
+            <p class="section-desc">ملحمة عسكرية قلبت كل الموازين العسكرية الحديثة، من نصر ساحق للمقاومة في الحرب الأولى إلى حصار حديدي واستراتيجية ششنة الصراع في الحرب الثانية.</p>
+        </div>
+
+        <!-- War 1 -->
+        <div class="war-box war-one">
+            <div class="war-meta">
+                <span class="meta-pill">📅 11 ديسمبر 1994 – 31 أغسطس 1996</span>
+                <span class="meta-pill" style="color: var(--accent-green-bright);">النتيجة: انتصار المقاومة الشيشانية وتوقيع اتفاقية خاسافيورت</span>
+            </div>
+            <h4 class="war-title">الحرب الشيشانية الأولى: مقبرة الدبابات وعاصفة غروزني</h4>
+            <p style="color: var(--text-secondary); line-height: 1.85;">
+                في أواخر عام 1994، زحفت ثلاثة جيوش روسية تضم مئات الدبابات وقاذفات القنابل نحو غروزني. ظن القادة الروس أن المعركة مجرد نزهة، لكنهم فوجئوا بدفاع مستميت قاده مقاتلون جبليون وضباط سابقون في الجيش السوفيتي يعرفون التكتيكات الروسية عن ظهر قلب.
+            </p>
+
+            <div class="war-grid">
+                <div>
+                    <h5 style="color: var(--accent-gold); margin-bottom: 0.75rem; font-size: 1.15rem;">محطات مفصلية في الحرب الأولى:</h5>
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.75;">
+                        • <strong>مذبحة ليلة رأس السنة في غروزني (31 ديسمبر 1994):</strong> حوصر لواء المايكوب الروسي (131st Maikop Brigade) داخل شوارع غروزني الضيقة؛ دمّر المقاتلون الشيشانيون بمقذوفات الـ RPG أول وآخر دبابة في الطابور، فتحولت الأرتال إلى مصيدة محترقة دُمر فيها مئات الآليات وقُتل معظم أفراد اللواء وضباطه.
+                    </p>
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.75;">
+                        • <strong>عملية بوديونوفسك (يونيو 1995):</strong> عندما اشتد القصف الروسي العشوائي على القرى والجبال، قاد شامل باساييف عملية مباغتة داخل الأراضي الروسية واحتجز مستشفى بوديونوفسك، مجبراً رئيس الوزراء الروسي فيكتور تشيرنوميردين على التفاوض المباشر ووقف القصف.
+                    </p>
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.75;">
+                        • <strong>اغتيال الرئيس جوهر دوداييف (أبريل 1996):</strong> اغتالت الاستخبارات الروسية دوداييف بصاروخ موجه التقط إشارة هاتفه الفضائي، فخلفه زليمخان يندرباييف ثم رئيس الأركان أصلان مسخادوف.
+                    </p>
+                    <p style="color: var(--text-secondary); line-height: 1.75;">
+                        • <strong>عملية الجهاد (معركة غروزني أغسطس 1996):</strong> خطط أصلان مسخادوف لهجوم مضاد عبقري؛ تسلل المقاتلون إلى داخل غروزني فجأة وحاصروا آلاف الجنود والشرطة الروسية في مراكزهم، مما أصاب الكرملين بالشلل التام.
+                    </p>
+                </div>
+
+                <div class="war-highlights">
+                    <h4>اتفاقية خاسافيورت (1996)</h4>
+                    <ul>
+                        <li>وقعها الجنرال الروسي ألكسندر ليبيد مع القائد الشيشاني أصلان مسخادوف.</li>
+                        <li>انسحاب كامل لجميع القوات الروسية من أرض الشيشان دون استثناء.</li>
+                        <li>تأجيل حسم الوضع القانوني النهائي للشيشان حتى عام 2001 (اعتراف عملي باستقلال إشكيريا).</li>
+                        <li>انتخاب مسخادوف رئيساً شرعياً عام 1997 باعتراف يلتسين وموسكو.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- War 2 -->
+        <div class="war-box war-two">
+            <div class="war-meta">
+                <span class="meta-pill">📅 26 أغسطس 1999 – 16 أبريل 2009</span>
+                <span class="meta-pill" style="color: var(--accent-red-bright);">النتيجة: فرض السيطرة الروسية بالقوة وتطبيق "ششنة الصراع"</span>
+            </div>
+            <h4 class="war-title">الحرب الشيشانية الثانية: صعود بوتين وسياسة الأرض المحروقة</h4>
+            <p style="color: var(--text-secondary); line-height: 1.85;">
+                بين الحربين، عانت جمهورية إشكيريا من حصار اقتصادي خانق ودمار شامل للبنية التحتية، وتصاعد الخلاف بين تيار الدولة الوطني المعتدل بقيادة الرئيس مسخادوف، وفصائل متشددة بقيادة شامل باساييف والقائد العربي "خطاب". في صيف 1999، دخلت قوات باساييف وخطاب داغستان المجاورة لنصرة جماعات إسلامية هناك، متجاوزين سلطة الرئيس مسخادوف.
+            </p>
+
+            <div class="war-grid">
+                <div>
+                    <h5 style="color: var(--accent-gold); margin-bottom: 0.75rem; font-size: 1.15rem;">محطات التحول الجذري:</h5>
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.75;">
+                        • <strong>تفجيرات المباني الروسية (سبتمبر 1999):</strong> هزت سلسلة تفجيرات مدن موسكو وبويناكسك وفولغودونسك مودية بحياة 300 مدني. وجّهت موسكو أصابع الاتهام للشيشان واستغلها رئيس الوزراء الجديد فلاديمير بوتين كذريعة لشن حرب بلا هوادة رفعت شعبيته وأوصلته للرئاسة.
+                    </p>
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.75;">
+                        • <strong>محو مدينة غروزني:</strong> اتبعت القوات الروسية تكتيك القصف المساحي بالمدفعية الثقيلة والصواريخ البالستية دون اقتحام مباشر. دُمّرت غروزني عن بكرة أبيها وصنفتها الأمم المتحدة عام 2003 بأنها <em>"أكثر مدينة مدمرة على سطح كوكب الأرض"</em>.
+                    </p>
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.75;">
+                        • <strong>استراتيجية "ششنة الصراع":</strong> أقنع الكرملين مفتي الشيشان السابق أحمد قاديروف بالانشقاق عن مسخادوف وتولي قيادة الشيشان الموالية لموسكو تحت شعار محاربة "الوهابية والتطرف الغريب عن التصوف القوقازي"، مما جعل الصراع شقاقاً شيشانياً-شيشانياً داخلياً بغطاء روسي.
+                    </p>
+                    <p style="color: var(--text-secondary); line-height: 1.75;">
+                        • <strong>اغتيال القادة الميدانيين:</strong> تم تصفية قادة المقاومة تدريجياً: الرئيس مسخادوف عام 2005، وشامل باساييف عام 2006، وأمير الجماعة الإسلامية خطاب بالسم عام 2002، لتخبو العمليات العسكرية الكبرى وتتحول لتمرد جبلي متفرق انتهى رسمياً في أبريل 2009.
+                    </p>
+                </div>
+
+                <div class="war-highlights">
+                    <h4>حصاد الحرب الثانية</h4>
+                    <ul>
+                        <li>مقتل ما بين 50 إلى 80 ألف مدني وتشريد مئات الآلاف في مخيمات أنغوشيا وأوروبا.</li>
+                        <li>اغتيال أحمد قاديروف في تفجير ملعب غروزني عام 2004، ليتولى ابنه <strong>رمضان قاديروف</strong> السلطة المطلقة بدعم غير محدود من بوتين.</li>
+                        <li>إعادة إعمار غروزني بناطحات سحاب ومساجد ضخمة (مثل مسجد قلب الشيشان) بتمويل فيدرالي باذخ مقابل الولاء التام للكرملين وقمع أي صوت للمطالبة بالاستقلال.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Interactive Timeline -->
+    <section class="container" id="timeline">
+        <div class="section-header">
+            <span class="section-tag">الفصل الرابع</span>
+            <h3 class="section-title">الخط الزمني لصراع القرون (1785 - 2026)</h3>
+            <p class="section-desc">محطات لا تُنسى في ذاكرة المقاومة الشيشانية عبر أكثر من قرنين ونصف من الزمان.</p>
+        </div>
+
+        <div class="timeline-filter">
+            <button class="filter-btn active" data-filter="all">جميع المحطات</button>
+            <button class="filter-btn" data-filter="tsarist">العهد القيصري</button>
+            <button class="filter-btn" data-filter="soviet">العهد السوفيتي</button>
+            <button class="filter-btn" data-filter="war1">الحرب الأولى 1994-1996</button>
+            <button class="filter-btn" data-filter="war2">الحرب الثانية وما بعدها</button>
+        </div>
+
+        <div class="timeline-container">
+            <div class="timeline-item right" data-category="tsarist">
+                <div class="timeline-card">
+                    <span class="timeline-year">1785</span>
+                    <h5 class="timeline-title">ثورة الشيخ منصور الشيشاني</h5>
+                    <p class="timeline-desc">أول من أعلن الجهاد ووحد شعوب شمال القوقاز في وجه التوسع الإمبراطوري القيصري بقيادة كاترين الثانية، وألحق بالجيش الروسي هزيمة نكراء في معركة نهر سونجا.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item left" data-category="tsarist">
+                <div class="timeline-card">
+                    <span class="timeline-year">1834 - 1859</span>
+                    <h5 class="timeline-title">إمامة شامل وحروب القوقاز الكبرى</h5>
+                    <p class="timeline-desc">قاد الإمام شامل الداغستاني بالتحالف مع فرسان الشيشان مقاومة ملحمية دامت 25 عاماً استنزفت الإمبراطورية الروسية قبل أن يسقط القوقاز تحت الاحتلال بعد بطولات تاريخية.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item right" data-category="soviet">
+                <div class="timeline-card">
+                    <span class="timeline-year">23 فبراير 1944</span>
+                    <h5 class="timeline-title">التهجير السوفيتي الشامل (أرداناخ)</h5>
+                    <p class="timeline-desc">أمر ستالين بتهجير كل رجل وامرأة وطفل شيشاني إلى سيبيريا وكازاخستان؛ إبادة راح ضحيتها ثلث الشعب في مأساة حفرت عداءً أبدياً للنظام الروسي.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item left" data-category="war1">
+                <div class="timeline-card">
+                    <span class="timeline-year">نوفمبر 1991</span>
+                    <h5 class="timeline-title">إعلان استقلال جمهورية إشكيريا</h5>
+                    <p class="timeline-desc">مع انهيار الاتحاد السوفيتي، انتخب الشعب الشيشاني الجنرال السابق جوهر دوداييف رئيساً، وأعلن الاستقلال التام ورفض التوقيع على المعاهدة الفيدرالية الروسية.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item right" data-category="war1">
+                <div class="timeline-card">
+                    <span class="timeline-year">ديسمبر 1994</span>
+                    <h5 class="timeline-title">اندلاع الحرب الشيشانية الأولى</h5>
+                    <p class="timeline-desc">الجيش الروسي يجتاح الشيشان، ومقاومة بطولية تسحق أرتال الدبابات الروسية في معركة غروزني ليلة رأس السنة.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item left" data-category="war1">
+                <div class="timeline-card">
+                    <span class="timeline-year">أغسطس 1996</span>
+                    <h5 class="timeline-title">اتفاقية خاسافيورت وهزيمة روسيا</h5>
+                    <p class="timeline-desc">استعادة المقاتلين لغروزني في عملية خاطفة، وإجبار موسكو على سحب كل قواتها والاعتراف بسلطة حكومة إشكيريا وتأجيل الوضع القانوني لعام 2001.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item right" data-category="war2">
+                <div class="timeline-card">
+                    <span class="timeline-year">أكتوبر 1999</span>
+                    <h5 class="timeline-title">الحرب الشيشانية الثانية وبداية عهد بوتين</h5>
+                    <p class="timeline-desc">قصف روسي مساحي ساحق، تدمير غروزني بالكامل، وانشقاق المفتي أحمد قاديروف لصالح موسكو لبدء حكم العائلة القاديروفية.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item left" data-category="war2">
+                <div class="timeline-card">
+                    <span class="timeline-year">2005 - 2006</span>
+                    <h5 class="timeline-title">استشهاد مسخادوف وباساييف</h5>
+                    <p class="timeline-desc">اغتيال القادة التاريخيين ونهاية مرحلة المقاومة الكبرى المنظمة، وتوطيد سلطة رمضان قاديروف كحاكم مطلق للشيشان بتمويل الكرملين.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item right" data-category="war2">
+                <div class="timeline-card">
+                    <span class="timeline-year">الحاضر 2026</span>
+                    <h5 class="timeline-title">الشتات الشيشاني وتجدد الرهان</h5>
+                    <p class="timeline-desc">انقسام المشهد الشيشاني: كتائب موالية لقاديروف تقاتل مع روسيا، وكتائب المتطوعين في الشتات (مثل كتيبة جوهر دوداييف وكتيبة الشيخ منصور) تقاتل ضد روسيا في أوكرانيا تمهيداً لتحرير إشكيريا.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Key Figures -->
+    <section class="container" id="figures">
+        <div class="section-header">
+            <span class="section-tag">الفصل الخامس</span>
+            <h3 class="section-title">شخصيات نقشت في الذاكرة الشيشانية</h3>
+            <p class="section-desc">رموز وقادة صنعوا الفارق في مسار التاريخ القوقازي والإسلامي.</p>
+        </div>
+
+        <div class="figures-grid">
+            <!-- Dzhokhar Dudayev -->
+            <div class="figure-card">
+                <div class="figure-header">
+                    <div class="figure-avatar">
+                        <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                    </div>
+                    <h4 class="figure-name">جوهر دوداييف</h4>
+                    <span class="figure-role">أول رئيس لجمهورية إشكيريا الشيشانية (1944 - 1996)</span>
+                </div>
+                <div class="figure-body">
+                    لواء طيار في سلاح الجو السوفيتي والقائد الوحيد من أصول شيشانية الذي نال هذه الرتبة الرفيعة. رفض قصف المتظاهرين في إستونيا، وقاد استقلال الشيشان بشجاعة نادرة. اغتالته روسيا بصاروخ موجه عام 1996.
+                    <div class="figure-quote">
+                        "إذا أردت أن ترى إنساناً حراً بحق، فانظر إلى الشيشاني.. حريتنا ليست هبة من أحد، بل انتزعناها بدمائنا."
+                    </div>
+                </div>
+            </div>
+
+            <!-- Aslan Maskhadov -->
+            <div class="figure-card">
+                <div class="figure-header">
+                    <div class="figure-avatar">
+                        <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                    </div>
+                    <h4 class="figure-name">أصلان مسخادوف</h4>
+                    <span class="figure-role">مهندس النصر العسكري والرئيس الثاني (1951 - 2005)</span>
+                </div>
+                <div class="figure-body">
+                    عقيد سابق في سلاح المدفعية السوفيتية، كان العقل العسكري المدبر للدفاع عن غروزني وعملية أغسطس 1996. تميز باعتداله السياسي وسعيه للسلام والاعتراف الدولي. اغتيل على يد القوات الخاصة الروسية عام 2005.
+                    <div class="figure-quote">
+                        "نحن لا نقاتل لأننا نعشق الموت، بل نقاتل لكي يعيش أطفالنا أحراراً دون خوف من عربات الترحيل."
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shamil Basayev -->
+            <div class="figure-card">
+                <div class="figure-header">
+                    <div class="figure-avatar">
+                        <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                    </div>
+                    <h4 class="figure-name">شامل باساييف</h4>
+                    <span class="figure-role">القائد الميداني المثير للجدل (1965 - 2006)</span>
+                </div>
+                <div class="figure-body">
+                    أشهر قادة حرب العصابات؛ خطط لعمليات بوديونوفسك وغروزني ومسرح موسكو ومدرسة بيسلان. اتجه نحو التشدد السلفي وتبني العمليات الصادمة داخل العمق الروسي للضغط على موسكو لوقف الحرب. قُتل في انفجار شاحنة عام 2006.
+                    <div class="figure-quote">
+                        "عندما تحرق روسيا مدننا وتقتل أطفالنا، فإنها تجبرنا على نقل نيران المعركة إلى عقر دارها."
+                    </div>
+                </div>
+            </div>
+
+            <!-- Akhmad & Ramzan Kadyrov -->
+            <div class="figure-card">
+                <div class="figure-header">
+                    <div class="figure-avatar">
+                        <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                    </div>
+                    <h4 class="figure-name">أحمد ورمضان قاديروف</h4>
+                    <span class="figure-role">تيار التحالف مع موسكو (1999 - حتى الآن)</span>
+                </div>
+                <div class="figure-body">
+                    أحمد قاديروف كان مفتياً للشيشان في الحرب الأولى وأعلن الجهاد، ثم انقلب في الحرب الثانية متحالفا مع بوتين بدعوى حماية الشيشان من الدمار واستئصال الوهابية. اغتيل عام 2004، ليخلفه ابنه رمضان الذي يحكم بقبضة أمنية مطلقة موالية للكرملين.
+                    <div class="figure-quote">
+                        "المصلحة تقتضي حفظ دماء الشيشان وإنهاء الحرب بالاتفاق مع روسيا بدلاً من إفناء الشعب بأكمله."
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 6: Nokhchalla Moral Code -->
+    <section class="container" id="nokhchalla">
+        <div class="nokhchalla-box">
+            <h3 class="nokhchalla-title">دستور الفروسية الشيشاني: ميثاق "نوختشاللا" (Nokhchalla)</h3>
+            <p class="nokhchalla-desc">
+                ليس مجرد تقاليد، بل هو العقد الأخلاقي غير المكتوب الذي شكل روح الإنسان الشيشاني عبر القرون، ويجمع بين الشهامة الإسلامية وأنفة الجبليين:
+            </p>
+
+            <div class="nokhchalla-pillars">
+                <div class="pillar-item">
+                    <h5><span>⚖️</span> 1. الكرامة المطلقة وعدم الانحناء</h5>
+                    <p>لا يجوز للشيشاني أن ينحني أمام أي إنسان كائناً من كان. الملوك والجبابرة والفقراء سواسية، ولا يُنحنى إلا لله تعالى في الصلاة.</p>
+                </div>
+                <div class="pillar-item">
+                    <h5><span>🌸</span> 2. إكرام المرأة وحرمتها</h5>
+                    <p>مكانة المرأة مقدسة؛ إذا ألقت امرأة منديلها بين مقاتلين متحاربين، توقفت المعركة فوراً احتراماً لها، وحرم الاعتداء على بيتها أو المساس بكرامتها.</p>
+                </div>
+                <div class="pillar-item">
+                    <h5><span>🏡</span> 3. حماية الضيف والمستجير</h5>
+                    <p>الضيف مقدم على النفس، ولو كان المستجير عدواً قديماً، فإن من دخل بيت الشيشاني أصبح في حماه ووجب الدفاع عنه حتى الموت.</p>
+                </div>
+                <div class="pillar-item">
+                    <h5><span>🛡️</span> 4. نجدة الضعيف وعفة القوي</h5>
+                    <p>يمنع على الشيشاني استعراض القوة أمام الضعفاء أو استغلال فقر المحتاج، بل من واجبه مساندة المظلوم دون انتظار جزاء أو شكر.</p>
+                </div>
+                <div class="pillar-item">
+                    <h5><span>⚔️</span> 5. الفروسية في الحرب والخصام</h5>
+                    <p>حظر الغدر أو قتل الأسرى أو التمثيل بالجثث، ومواجهة الخصم بشجاعة الوجه للوجه دون طعن في الظهر.</p>
+                </div>
+                <div class="pillar-item">
+                    <h5><span>🤝</span> 6. التكافل العشائري والأخوة</h5>
+                    <p>نظام التييب (العشيرة) ليس للتعصب الأعمى، بل لضمان ألا يبيت يتيم جائعاً ولا يبقى عاجز دون معيل يسنده.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 7: FAQ & Misconceptions -->
+    <section class="container" id="faq">
+        <div class="section-header">
+            <span class="section-tag">الفصل السابع</span>
+            <h3 class="section-title">حقائق وتساؤلات شائعة حول القضية الشيشانية</h3>
+            <p class="section-desc">إجابات موضوعية ودقيقة تزيل اللبس عن أبرز القضايا التاريخية والسياسية.</p>
+        </div>
+
+        <div class="faq-accordion">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>هل كانت الحرب الشيشانية صراعاً دينياً بحتاً؟</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        الحرب بدأت أساساً كحركة <strong>تحرر وطني وسياسي</strong> قادها جنرالات وضباط قوميون (مثل دوداييف ومسخادوف) للمطالبة بحق تقرير المصير والتخلص من إرث الاحتلال والتهجير السوفيتي. لكن الدين الإسلامي كان وما زال يشكل العمود الفقري للهوية القومية الشيشانية ومصدر الصمود الروحي، ومع شدة المجازر الروسية وتجاهل الغرب لقضيتهم، تعزز البعد العقائدي المقاوم، وجاء مقاتلون متطوعون من العالم الإسلامي، فامتزج الدافع الوطني بالجهاد الديني.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>لماذا وافقت روسيا على استقلال كازاخستان وأوكرانيا ومنعت الشيشان بالقوة؟</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        يرجع ذلك للتقسيم الإداري السوفيتي: كانت أوكرانيا وكازاخستان وجورجيا مصنفة كـ <em>"جمهوريات اتحادية" (Soviet Socialist Republics)</em> كان لها حق الخروج الدستوري عند انهيار الاتحاد. أما الشيشان فكانت مصنفة كـ <em>"جمهورية ذاتية الحكم"</em> تابعة مباشرة لجمهورية روسيا الفيدرالية (RSFSR). اعتبرت موسكو استقلال الشيشان يهدد بتفكيك الأراضي الروسية ذاتها ويقطع شرايين نفط قزوين ويشجع جمهوريات إسلامية أخرى داخل روسيا (مثل تترستان) على الانفصال.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>ما هو دور التصوف الإسلامي في حرب الشيشان؟</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        التصوف في الشيشان (خاصة الطريقتين القادرية والنقشبندية) لم يكن تصوفاً انعزالياً، بل كان تصوفاً جهادياً منظماً. فالروابط الصوفية (الورد والتيب) كانت تتيح للمجتمع الشيشاني تنظيم صفوفه كخلايا سرية لا يمكن للاستخبارات السوفيتية اختراقها. قاد أئمة الصوفية مثل الشيخ منصور والإمام شامل المقاومة ضد القياصرة، وفي حرب التسعينيات شكلت حلقات الذكر القادرية والروح الأخوية الرافعة الأساسية لمعنويات المقاتلين في وجه الآلة العسكرية الروسية.
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>أين تقف الشيشان اليوم في المشهد الدولي؟</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        الشيشان اليوم تعيش حالة انقسام عميق:
+                        <br><br>
+                        1. <strong>داخل الشيشان:</strong> تخضع لحكم رمضان قاديروف الموالي لبوتين، والتي أعادت بناء غروزني بنهضة عمرانية مذهلة لكن مع قمع أمني صارم لأي معارضة، ومشاركة قواته (المعروفة بالقاديروفتسي) في الحرب مع روسيا بأوكرانيا.
+                        <br><br>
+                        2. <strong>في الشتات الأوروبي:</strong> مئات الآلاف من الشيشانيين المتمسكين بشرعية "جمهورية إشكيريا"، والذين شكلوا كتائب عسكرية (مثل كتيبة جوهر دوداييف وكتيبة الشيخ منصور) تقاتل إلى جانب أوكرانيا ضد روسيا، معتبرين أن إضعاف موسكو في أوكرانيا هو السبيل الحتمي لفتح باب تحرير القوقاز واستعادة استقلال إشكيريا مجدداً.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Modal Component -->
+    <div class="modal-overlay" id="search-modal">
+        <div class="search-modal">
+            <div class="search-modal-header">
+                <input type="text" id="search-input" placeholder="اكتب للبحث السريع (مثال: غروزني، دوداييف، أسباب الحرب، 1944)...">
+                <button class="close-modal" id="close-search-btn">✕</button>
+            </div>
+            <div class="search-results" id="search-results">
+                <p style="color: var(--text-muted); text-align: center; padding: 2.5rem 0;">ابدأ بكتابة أي كلمة مفتاحية للبحث السريع في محتوى الموقع...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">
+            <svg viewBox="0 0 100 100">
+                <polygon points="50,8 18,88 82,88" stroke="var(--accent-gold)" stroke-width="4" fill="none"/>
+                <rect x="42" y="38" width="16" height="34" fill="var(--accent-gold)" opacity="0.8"/>
+                <circle cx="50" cy="26" r="4.5" fill="var(--accent-gold)"/>
+                <line x1="28" y1="88" x2="72" y2="88" stroke="var(--accent-gold)" stroke-width="6"/>
+            </svg>
+            <h4 style="color: var(--accent-gold); font-weight: 800; font-size: 1.25rem;">ملحمة الشيشان وصراع البقاء</h4>
+        </div>
+        <p class="footer-text">
+            موقع وثائقي معرفي يعرض قصة النضال الشيشاني من زاوية تاريخية موضوعية تعكس الهوية الإسلامية والقوقازية لشعب لم يرتضِ بغير الكرامة بديلاً.
+        </p>
+        <div class="footer-bottom">
+            <span>توثيق تاريخي حر • كرامة، إيمان، حرية</span>
+        </div>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // Reading Progress
+        window.addEventListener('scroll', () => {
+            const docElement = document.documentElement;
+            const scrollTop = docElement.scrollTop || document.body.scrollTop;
+            const scrollHeight = docElement.scrollHeight - docElement.clientHeight;
+            const percent = (scrollTop / scrollHeight) * 100;
+            document.getElementById('progress-bar').style.width = percent + '%';
+        });
+
+        // Mobile Nav Toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+        });
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('show');
+            });
+        });
+
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                faqItems.forEach(i => {
+                    i.classList.remove('active');
+                    i.querySelector('.faq-answer').style.maxHeight = null;
+                });
+                if (!isActive) {
+                    item.classList.add('active');
+                    const answer = item.querySelector('.faq-answer');
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                }
+            });
+        });
+
+        // Timeline Category Filtering
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const timelineItems = document.querySelectorAll('.timeline-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.getAttribute('data-filter');
+
+                timelineItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Search Functionality
+        const searchableItems = [
+            { title: "من هم الشيشان؟ أصل شعب النخ", desc: "ينحدر الشيشان من شعوب الفايناتش العريقة في جبال القوقاز وتميزوا بالنظام الديمقراطي العشائري.", anchor: "#origins" },
+            { title: "الإسلام والتصوف القوقازي المقاوم", desc: "دور الطرق الصوفية (القادرية والنقشبندية) وحلقات الذكر في الصمود ضد الاحتلال الروسي.", anchor: "#origins" },
+            { title: "رمز الذئب الشيشاني (Borz)", desc: "رمز الصمود القومي والشجاعة التي لا تقبل الترويض في سيرك الجبابرة.", anchor: "#origins" },
+            { title: "عملية العدس (أرداناخ) 1944 والتهجير السوفيتي", desc: "جريمة ستالين وبيريا بتهجير نصف مليون شيشاني لسيبيريا وكازاخستان ومقتل ثلث الشعب.", anchor: "#origins" },
+            { title: "موقع الشيشان الاستراتيجي ولعنة الجغرافيا", desc: "ممر القوقاز وعقدة أنابيب نفط باكو وبحر قزوين إلى ميناء نوفوروسيسك الروسي.", anchor: "#causes" },
+            { title: "لماذا قامت الحرب؟ مطالب الشيشان 1991", desc: "حق تقرير المصير، التحرر من التطهير العرقي، استعادة النفط، والسيادة على أرض القوقاز.", anchor: "#causes" },
+            { title: "أسباب رفض روسيا استقلال الشيشان", desc: "أنابيب نفط باكو وقزوين، الخوف من تفكك الفيدرالية الروسية، وحفظ ماء وجه الجيش.", anchor: "#causes" },
+            { title: "الحرب الشيشانية الأولى (1994 - 1996)", desc: "معركة رأس السنة في غروزني، سحق الدبابات الروسية، وانتصار المقاومة في اتفاقية خاسافيورت.", anchor: "#wars" },
+            { title: "الحرب الشيشانية الثانية (1999 - 2009)", desc: "صعود فلاديمير بوتين، تدمير غروزني بالكامل، وانشقاق أحمد قاديروف وتطبيق ششنة الصراع.", anchor: "#wars" },
+            { title: "جوهر دوداييف: أول رئيس لإشكيريا", desc: "لواء الطيران السوفيتي الذي قاد استقلال بلاده بشجاعة حتى استشهاده عام 1996.", anchor: "#figures" },
+            { title: "أصلان مسخادوف: مهندس النصر والرئيس الثاني", desc: "العقل العسكري المدبر لتحرير غروزني عام 1996 ومساعيه الدبلوماسية للسلام حتى اغتياله 2005.", anchor: "#figures" },
+            { title: "شامل باساييف: قائد العمليات الميدانية", desc: "أشهر قادة حرب العصابات، قاد عمليات بوديونوفسك وغروزني ومسرح موسكو حتى مقتله 2006.", anchor: "#figures" },
+            { title: "أحمد ورمضان قاديروف والتحالف مع الكرملين", desc: "الانشقاق عن مسخادوف، استراتيجية ششنة الحرب، وحكم الشيشان بالقبضة الأمنية.", anchor: "#figures" },
+            { title: "ميثاق نوختشاللا (Nokhchalla)", desc: "دستور الفروسية الشيشاني: الكرامة، إكرام المرأة، حماية الضيف، والمساواة المطلقة.", anchor: "#nokhchalla" },
+            { title: "أين تقف الشيشان اليوم؟ الشتات وأوكرانيا", desc: "الصراع بين نظام قاديروف الموالي لبوتين، والكتائب الشيشانية في الشتات الساعية لتحرير إشكيريا.", anchor: "#faq" }
+        ];
+
+        const openSearchBtn = document.getElementById('open-search-btn');
+        const closeSearchBtn = document.getElementById('close-search-btn');
+        const searchModal = document.getElementById('search-modal');
+        const searchInput = document.getElementById('search-input');
+        const searchResults = document.getElementById('search-results');
+
+        function openSearch() {
+            searchModal.classList.add('open');
+            setTimeout(() => searchInput.focus(), 100);
+        }
+
+        function closeSearch() {
+            searchModal.classList.remove('open');
+            searchInput.value = '';
+            searchResults.innerHTML = '<p style="color: var(--text-muted); text-align: center; padding: 2.5rem 0;">ابدأ بكتابة أي كلمة مفتاحية للبحث السريع في محتوى الموقع...</p>';
+        }
+
+        openSearchBtn.addEventListener('click', openSearch);
+        closeSearchBtn.addEventListener('click', closeSearch);
+        searchModal.addEventListener('click', (e) => {
+            if (e.target === searchModal) closeSearch();
+        });
+
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.trim().toLowerCase();
+            if (!query) {
+                searchResults.innerHTML = '<p style="color: var(--text-muted); text-align: center; padding: 2.5rem 0;">ابدأ بكتابة أي كلمة مفتاحية للبحث السريع في محتوى الموقع...</p>';
+                return;
+            }
+
+            const filtered = searchableItems.filter(item => 
+                item.title.toLowerCase().includes(query) || 
+                item.desc.toLowerCase().includes(query)
+            );
+
+            if (filtered.length === 0) {
+                searchResults.innerHTML = '<p style="color: var(--accent-red-bright); text-align: center; padding: 2rem 0;">لم يتم العثور على نتائج تطابق بحثك. جرّب كلمات أخرى مثل: غروزني، بوتين، نفط، دوداييف، استقلال.</p>';
+                return;
+            }
+
+            searchResults.innerHTML = filtered.map(item => `
+                <div class="search-result-item" onclick="navigateTo('${item.anchor}')">
+                    <h6>${item.title}</h6>
+                    <p>${item.desc}</p>
+                </div>
+            `).join('');
+        });
+
+        window.navigateTo = function(anchor) {
+            closeSearch();
+            window.location.hash = anchor;
+        };
+
+        // Esc key closes modal
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeSearch();
+        });
+    </script>
+</body>
+</html>
